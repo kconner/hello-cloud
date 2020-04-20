@@ -25,7 +25,7 @@ docker-compose --file docker-compose.release.yml up --build --detach
 In either case, find the server at port 8080.
 
 ```bash
-curl http://localhost:8080
+curl http://localhost:8080/health-check/
 ```
 
 When done, tear it down.

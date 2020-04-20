@@ -1,0 +1,14 @@
+# https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples
+
+version: '3.7'
+
+services:
+  api:
+    container_name: hello-cloud-api-python
+    build:
+      context: .
+    ports:
+    - 8080:80
+    environment:
+    - FLASK_ENV=development
+    command: python3 main.py

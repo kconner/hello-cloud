@@ -6,8 +6,8 @@ FROM alpine:3
 RUN apk add --no-cache python3 py3-gunicorn
 RUN pip3 --no-cache-dir install flask
 
-COPY main.py /
-WORKDIR /
+WORKDIR /app
+COPY . .
 
 CMD gunicorn --bind 0.0.0.0:80 main:app
 

@@ -6,7 +6,7 @@ services:
   api:
     container_name: hello-cloud-api-python
     build:
-      context: .
+      context: api
     ports:
     - 8080:80
     environment:

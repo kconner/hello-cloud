@@ -1,0 +1,8 @@
+container_name: hello-cloud-api-python
+build:
+  context: api/python3-flask
+ports:
+- 8080:80
+environment:
+- FLASK_ENV=development
+command: python3 main.py

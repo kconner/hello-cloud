@@ -1,28 +1,28 @@
 # hello-cloud
 
-## Assumptions
-
-You are using macOS 10.15 Catalina.
-
 ## Setup
 
-Install [Docker for Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac/).
+These instructions assume you are using macOS 10.15 Catalina.
 
-Install [Homebrew](https://brew.sh).
+Install [Docker for Mac](
+    https://hub.docker.com/editions/community/docker-ce-desktop-mac/
+), a menu bar app and system service for running containers.
 
-### Python environment
+Install [Homebrew](https://brew.sh), the macOS community package manager.
 
-This project uses Python for scripts not included in deployable Docker images,
-so requires some local Python environment setup.
-We use `pyenv` in order to avoid interfering with other applications.
+### Python script environment
 
-Install `pyenv` with `brew`.
+This project uses Python for scripts run outside of Docker.
+We use `pyenv` to keep our mess out of other projects.
+This requires some local environment setup.
+
+Install `pyenv` using `brew`.
 
 ```bash
 brew install pyenv
 ```
 
-Install the project's version of Python with `pyenv`.
+Install the project's version of Python using `pyenv`.
 
 ```bash
 pyenv install
@@ -31,19 +31,28 @@ pyenv install
 Update `pip` and install `pip` packages.
 
 ```bash
-pyenv exec pip install --upgrade pip --requirement requirements.txt
+pyenv exec pip install --upgrade pip --requirement scripts/requirements.txt
 ```
 
-Optionally, get instructions for setting your python environment automatically,
-so you don't have to prefix commands like `pip` with `pyenv exec`.
-For instance, you can then run scripts as `scripts/foo.py` rather than
-`pyenv exec python scripts/foo.py`.
+Get instructions for using `pyenv` in terminal sessions, then follow them.
+Start a new terminal tab to apply.
 
 ```bash
 pyenv init
 ```
 
+> This will remove the need to prefix python environment commands with
+> `pyenv exec`. This is necessary for running scripts as they're written here.
+
 ## Workflow
+
+Select an app configuration and write docker-compose.yml.
+
+```bash
+./scripts/configure-app.py --mode debug --api python3-flask
+```
+
+> Scripts are generally written to be run from the project root folder.
 
 Bring up a debug environment with Docker Compose.
 
@@ -51,13 +60,7 @@ Bring up a debug environment with Docker Compose.
 docker-compose up --build --detach
 ```
 
-Alternatively, perform a release build and then launch that.
-
-```bash
-docker-compose --file docker-compose.release.yml up --build --detach
-```
-
-In either case, find the server at port 8080.
+Find the API service at port 8080.
 
 ```bash
 curl http://localhost:8080/health-check/

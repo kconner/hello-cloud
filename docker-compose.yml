@@ -6,7 +6,7 @@ services:
   api:
     container_name: hello-cloud-api-python
     build:
-      context: api
+      context: api/python3-flask
     ports:
     - 8080:80
     environment:

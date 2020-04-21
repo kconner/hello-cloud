@@ -1,4 +1,3 @@
-container_name: hello-cloud-api-python
 build:
   context: api/python3-flask
 ports:

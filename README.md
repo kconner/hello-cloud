@@ -8,6 +8,26 @@ You are using macOS 10.15 Catalina.
 
 Install [Docker for Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac/).
 
+Install [Homebrew](https://brew.sh).
+
+Install `pyenv` with `brew`.
+
+```bash
+brew install pyenv
+```
+
+Install the project's version of Python with `pyenv`.
+
+```bash
+pyenv install
+```
+
+Update `pip` and install `pip` packages.
+
+```bash
+pyenv exec pip install --upgrade pip --requirement requirements.txt
+```
+
 ## Workflow
 
 Bring up a debug environment with Docker Compose.
@@ -36,9 +56,10 @@ docker-compose down
 
 ## Things I want to find a home for
 
-Use `dive` to inpsect docker images you create.
+Use `dive` to inspect docker images you create.
 
 ```bash
 brew install dive
 dive <image>
 ```
+

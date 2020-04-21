@@ -49,7 +49,7 @@ pyenv init
 Select an app configuration and write docker-compose.yml.
 
 ```bash
-./scripts/configure-app.py --mode debug --api python3-flask
+./scripts/configure_app.py --mode debug --api python3-flask
 ```
 
 > Scripts are generally written to be run from the project root folder.

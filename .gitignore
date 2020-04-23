@@ -1,3 +1,3 @@
 *.swp
-__pycache__
-docker-compose.yml
+/docker-compose.yml
+/scripts/__pycache__

@@ -3,3 +3,6 @@ Dockerfile
 .gitignore
 service-*.yml
 *.swp
+
+.build/
+.swiftpm/

@@ -1,7 +1,7 @@
 # ================================
-# Build image
+# Test image
 # ================================
-FROM vapor/swift:latest as build
+FROM vapor/swift:latest as test
 WORKDIR /build
 
 # First just resolve dependencies.
@@ -13,6 +13,11 @@ RUN swift package resolve
 
 # Copy entire repo into container
 COPY . .
+
+# ================================
+# Build image
+# ================================
+FROM test as build
 
 # Compile with optimizations
 RUN swift build \
@@ -33,5 +38,6 @@ COPY --from=build /usr/lib/swift/ /usr/lib/swift/
 # Uncomment the next line if you need to load resources from the `Public` directory
 #COPY --from=build /build/Public /run/Public
 
-ENTRYPOINT ["./Run"]
-CMD ["serve", "--env", "production", "--hostname", "0.0.0.0"]
+CMD ./Run serve --env production --hostname 0.0.0.0 --port 80
+
+EXPOSE 80

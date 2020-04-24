@@ -2,7 +2,7 @@
 # Test image
 # ================================
 FROM vapor/swift:latest as test
-WORKDIR /build
+WORKDIR /src
 
 # First just resolve dependencies.
 # This creates a cached layer that can be reused 
@@ -32,7 +32,7 @@ FROM vapor/ubuntu:18.04
 WORKDIR /run
 
 # Copy build artifacts
-COPY --from=build /build/.build/release /run
+COPY --from=build /src/.build/release /run
 # Copy Swift runtime libraries
 COPY --from=build /usr/lib/swift/ /usr/lib/swift/
 # Uncomment the next line if you need to load resources from the `Public` directory

@@ -48,7 +48,9 @@ def argument_parser(services):
 
 def service_implementation_choices(service):
     path = service
-    return [f for f in listdir(path) if not isfile(join(path, f))]
+    choices = [f for f in listdir(path) if not isfile(join(path, f))]
+    choices.sort()
+    return choices
 
 def write_docker_compose_yaml(mode, services_and_implementations):
     template_yaml = """

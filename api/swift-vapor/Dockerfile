@@ -28,15 +28,15 @@ RUN swift build \
 	-c release \
 	-Xswiftc -g
 
-FROM vapor/ubuntu:18.04 as run
-WORKDIR /run
+FROM vapor/ubuntu:18.04 as release
+WORKDIR /release
 
-# Copy build artifacts
-COPY --from=build /src/.build/release /run
+# Copy the build product
+COPY --from=build /src/.build/release/Run /release
 # Copy Swift runtime libraries
-COPY --from=build /usr/lib/swift/ /usr/lib/swift/
+COPY --from=build /usr/lib/swift/linux/ /usr/lib/swift/linux/
 # Uncomment the next line if you need to load resources from the `Public` directory
-#COPY --from=build /build/Public /run/Public
+#COPY --from=build /build/Public /release/Public
 
 CMD ./Run serve --env production --hostname 0.0.0.0 --port 80
 

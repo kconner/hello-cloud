@@ -23,11 +23,11 @@ FROM develop as build
 
 RUN go build -o /build/app
 
-FROM alpine:3 as run
-WORKDIR /run
+FROM alpine:3 as release
+WORKDIR /release
 
 # Copy build artifacts
-COPY --from=build /build/app /run
+COPY --from=build /build/app /release
 
 CMD ./app
 

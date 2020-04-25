@@ -12,6 +12,6 @@ RUN pip3 --no-cache-dir install --requirement requirements.txt
 
 COPY . .
 
-CMD gunicorn --bind 0.0.0.0:80 main:app
+CMD gunicorn --bind 0.0.0.0:80 app:app
 
 EXPOSE 80

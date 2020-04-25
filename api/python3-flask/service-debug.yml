@@ -4,4 +4,6 @@ ports:
 - 8080:80
 environment:
 - FLASK_ENV=development
-command: python3 main.py
+volumes:
+- ./api/python3-flask:/app:delegated
+command: flask run --host 0.0.0.0 --port 80

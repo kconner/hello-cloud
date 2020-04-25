@@ -1,6 +1,6 @@
 build:
   context: api/swift-vapor
-environment:
-  LOG_LEVEL: ${LOG_LEVEL:-info}
 ports:
 - 8080:80
+environment:
+  LOG_LEVEL: ${LOG_LEVEL:-info}

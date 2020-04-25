@@ -1,10 +1,10 @@
 build:
   context: api/swift-vapor
   target: test
-environment:
-  LOG_LEVEL: ${LOG_LEVEL:-debug}
 ports:
 - 8080:80
+environment:
+  LOG_LEVEL: ${LOG_LEVEL:-debug}
 volumes:
 - ./api/swift-vapor:/src:delegated
 command: ./build-and-debug.sh

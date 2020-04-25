@@ -3,8 +3,9 @@
 export ENTR_INOTIFY_WORKAROUND=1
 
 read -r -d '' build_and_debug <<'EOF'
-echo Rebuilding. \
+echo Rebuilding… \
     && swift build --enable-test-discovery -c debug -Xswiftc -g \
+    && echo Serving. \
     && .build/debug/Run serve --env development --hostname 0.0.0.0 --port 80
 EOF
 

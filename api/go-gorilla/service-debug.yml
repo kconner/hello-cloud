@@ -1,0 +1,7 @@
+build:
+  context: api/go-gorilla
+ports:
+- 8080:80
+volumes:
+- ./api/go-gorilla:/src:delegated
+command: ./watch-build-and-debug.sh

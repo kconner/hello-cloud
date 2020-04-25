@@ -4,9 +4,14 @@
 FROM vapor/swift:latest as test
 WORKDIR /src
 
-RUN apt-get update && apt-get install -y \
-    entr \
-    && rm -rf /var/lib/apt/lists/*
+RUN git clone https://github.com/eradman/entr.git \
+    && cd entr \
+    && git checkout --quiet 4.5 \
+    && ./configure \
+    && make test \
+    && make install \
+    && cd - \
+    && rm -rf entr
 
 # First just resolve dependencies.
 # This creates a cached layer that can be reused 

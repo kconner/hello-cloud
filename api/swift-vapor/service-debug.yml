@@ -1,6 +1,6 @@
 build:
   context: api/swift-vapor
-  target: test
+  target: develop
 ports:
 - 8080:80
 environment:

@@ -1,7 +1,4 @@
-# ================================
-# Test image
-# ================================
-FROM vapor/swift:latest as test
+FROM vapor/swift:latest as develop
 WORKDIR /src
 
 RUN git clone https://github.com/eradman/entr.git \
@@ -23,10 +20,7 @@ RUN swift package resolve
 # Copy entire repo into container
 COPY . .
 
-# ================================
-# Build image
-# ================================
-FROM test as build
+FROM develop as build
 
 # Compile with optimizations
 RUN swift build \
@@ -34,10 +28,7 @@ RUN swift build \
 	-c release \
 	-Xswiftc -g
 
-# ================================
-# Run image
-# ================================
-FROM vapor/ubuntu:18.04
+FROM vapor/ubuntu:18.04 as run
 WORKDIR /run
 
 # Copy build artifacts

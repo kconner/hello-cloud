@@ -1,7 +1,7 @@
 # https://cryptic.io/go-http/
 # https://medium.com/the-andela-way/build-a-restful-json-api-with-golang-85a83420c9da
 
-FROM golang:1.14-alpine
+FROM golang:1.14-alpine as develop
 
 RUN apk add --no-cache --virtual .git-dependencies git make g++ \
     && git clone https://github.com/eradman/entr.git \
@@ -18,3 +18,17 @@ RUN apk add --no-cache --virtual .git-dependencies git make g++ \
 WORKDIR /src
 
 COPY . .
+
+FROM develop as build
+
+RUN go build -o /build/app
+
+FROM alpine:3 as run
+WORKDIR /run
+
+# Copy build artifacts
+COPY --from=build /build/app /run
+
+CMD ./app
+
+EXPOSE 80

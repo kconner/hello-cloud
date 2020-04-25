@@ -1,0 +1,4 @@
+build:
+  context: api/go-gorilla
+ports:
+- 8080:80

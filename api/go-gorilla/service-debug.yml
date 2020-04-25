@@ -1,5 +1,6 @@
 build:
   context: api/go-gorilla
+  target: develop
 ports:
 - 8080:80
 volumes:

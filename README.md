@@ -20,6 +20,7 @@ So far, the services and their implementations are:
 - `api`
     - [`python3-flask`](https://palletsprojects.com/p/flask/)
     - [`swift-vapor`](https://vapor.codes) 
+    - [`go-gorilla`](https://www.gorillatoolkit.org) 
 
 ## Setup
 

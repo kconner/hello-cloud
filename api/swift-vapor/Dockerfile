@@ -4,6 +4,10 @@
 FROM vapor/swift:latest as test
 WORKDIR /src
 
+RUN apt-get update && apt-get install -y \
+    entr \
+    && rm -rf /var/lib/apt/lists/*
+
 # First just resolve dependencies.
 # This creates a cached layer that can be reused 
 # as long as your Package.swift/Package.resolved

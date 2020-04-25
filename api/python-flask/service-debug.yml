@@ -1,9 +1,9 @@
 build:
-  context: api/python3-flask
+  context: api/python-flask
 ports:
 - 8080:80
 environment:
 - FLASK_ENV=development
 volumes:
-- ./api/python3-flask:/app:delegated
+- ./api/python-flask:/app:delegated
 command: flask run --host 0.0.0.0 --port 80

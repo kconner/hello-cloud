@@ -18,7 +18,7 @@ the app using a script. Configuring generates `docker-compose.yml`.
 So far, the services and their implementations are:
 
 - `api`
-    - [`python3-flask`](https://palletsprojects.com/p/flask/)
+    - [`python-flask`](https://palletsprojects.com/p/flask/)
     - [`swift-vapor`](https://vapor.codes) 
     - [`go-gorilla`](https://www.gorillatoolkit.org) 
 
@@ -71,7 +71,7 @@ pyenv init
 Select an app configuration and write docker-compose.yml.
 
 ```bash
-./scripts/configure.py --mode debug --api python3-flask
+./scripts/configure.py --mode debug --api python-flask
 ```
 
 > Scripts are generally written to be run from the project root folder.

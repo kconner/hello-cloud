@@ -1,0 +1,4 @@
+build:
+  context: api/python-flask
+ports:
+- 8080:80

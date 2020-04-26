@@ -1,3 +1,5 @@
+# https://github.com/swift-server/guides
+
 FROM vapor/swift:latest as develop
 WORKDIR /src
 
@@ -25,8 +27,7 @@ FROM develop as build
 # Compile with optimizations
 RUN swift build \
 	--enable-test-discovery \
-	-c release \
-	-Xswiftc -g
+	-c release
 
 FROM vapor/ubuntu:18.04 as release
 WORKDIR /release

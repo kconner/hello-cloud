@@ -6,5 +6,5 @@ ports:
 environment:
   LOG_LEVEL: ${LOG_LEVEL:-debug}
 volumes:
-- ./api/swift-vapor:/src:delegated
+- ./api/swift-vapor:/app:delegated
 command: ./watch-build-and-debug.sh

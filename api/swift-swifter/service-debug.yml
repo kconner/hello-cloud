@@ -1,0 +1,8 @@
+build:
+  context: api/swift-swifter
+  target: develop
+ports:
+- 8080:80
+volumes:
+- ./api/swift-swifter:/app:delegated
+command: ./watch-build-and-debug.sh

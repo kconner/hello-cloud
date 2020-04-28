@@ -1,0 +1,8 @@
+/Dockerfile
+/.dockerignore
+/service-*.yml
+.gitignore
+*.swp
+
+/.build/
+/.swiftpm/

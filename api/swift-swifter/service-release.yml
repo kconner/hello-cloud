@@ -1,0 +1,4 @@
+build:
+  context: api/swift-swifter
+ports:
+- 8080:80

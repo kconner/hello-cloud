@@ -83,6 +83,12 @@ Bring up a debug environment with Docker Compose.
 docker-compose up --build --detach
 ```
 
+View logs from the application.
+
+```bash
+docker-compose logs --follow
+```
+
 Find the API service at port 8080.
 
 ```bash

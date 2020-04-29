@@ -7,4 +7,4 @@ environment:
   LOG_LEVEL: ${LOG_LEVEL:-debug}
 volumes:
 - ./api/swift-vapor:/app:delegated
-command: ./watch-build-and-debug.sh
+entrypoint: ./watch-build-and-debug.sh

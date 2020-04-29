@@ -21,6 +21,7 @@ So far, the services and their implementations are:
     - [`python-flask`](https://palletsprojects.com/p/flask/)
     - [`swift-vapor`](https://vapor.codes) 
     - [`go-gorilla`](https://www.gorillatoolkit.org) 
+    - [`swift-swifter`](https://github.com/httpswift/swifter) 
 
 ## Setup
 
